@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biology Quiz - Complete 120 Question Bank</title>
+    <title>Biology Quiz - Advanced Learning Platform</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -29,32 +29,20 @@
                     </div>
                 </div>
                 <h1>Biology Mastery Quiz</h1>
-                <p class="welcome-subtitle">Complete 120 question bank - 40 randomly selected with shuffled options!</p>
+                <p class="welcome-subtitle">Test your knowledge with 40 comprehensive biology questions</p>
                 
                 <div class="quiz-info">
                     <div class="info-item">
-                        <span class="info-icon">📚</span>
-                        <span>120 Question Bank</span>
-                    </div>
-                    <div class="info-item">
-                        <span class="info-icon">🎲</span>
-                        <span>40 Random Questions</span>
+                        <span class="info-icon">📝</span>
+                        <span>40 Questions</span>
                     </div>
                     <div class="info-item">
                         <span class="info-icon">⏱️</span>
                         <span>20 Minutes</span>
                     </div>
                     <div class="info-item">
-                        <span class="info-icon">🔀</span>
-                        <span>Shuffled Options</span>
-                    </div>
-                </div>
-
-                <div class="shuffle-notice">
-                    <div class="notice-icon">⚡</div>
-                    <div class="notice-content">
-                        <h3>Advanced Randomization System</h3>
-                        <p>From our comprehensive 120-question database, 40 questions are randomly selected for each attempt. Question order and answer choices (A, B, C, D) are completely shuffled to ensure every quiz is unique and tests true knowledge.</p>
+                        <span class="info-icon">🎯</span>
+                        <span>Detailed Review</span>
                     </div>
                 </div>
 
@@ -64,7 +52,7 @@
                 </div>
                 
                 <button id="startQuiz" class="btn btn--primary btn--lg btn--full-width">
-                    Start Randomized Quiz
+                    Start Quiz
                 </button>
             </div>
         </div>
@@ -88,10 +76,6 @@
                         <span id="timeDisplay">20:00</span>
                     </div>
                 </div>
-                <div class="shuffle-indicator">
-                    <span class="shuffle-badge">🎲 Random from 120 Questions</span>
-                    <span class="shuffle-badge">🔀 Options Shuffled</span>
-                </div>
             </div>
         </div>
 
@@ -100,7 +84,7 @@
                 <div class="question-card">
                     <h2 id="questionText" class="question-title"></h2>
                     <div id="optionsContainer" class="options-container">
-                        <!-- Shuffled options will be inserted here -->
+                        <!-- Options will be inserted here -->
                     </div>
                 </div>
 
@@ -125,7 +109,6 @@
                     </div>
                     <h1>Quiz Completed!</h1>
                     <p class="student-name">Well done, <span id="resultStudentName"></span>!</p>
-                    <p class="shuffle-completion">You completed a unique quiz from our 120-question database</p>
                 </div>
 
                 <div class="results-stats">
@@ -149,7 +132,7 @@
 
                 <div class="results-actions">
                     <button id="reviewAnswers" class="btn btn--primary btn--lg">Review Answers</button>
-                    <button id="retakeQuiz" class="btn btn--secondary btn--lg">New Random Quiz</button>
+                    <button id="retakeQuiz" class="btn btn--secondary btn--lg">Retake Quiz</button>
                 </div>
             </div>
         </div>
@@ -161,9 +144,6 @@
             <div class="container">
                 <div class="review-header-content">
                     <h1>Answer Review</h1>
-                    <div class="review-subtitle">
-                        <span class="shuffle-note">📝 Your randomly selected and shuffled questions</span>
-                    </div>
                     <button id="backToResults" class="btn btn--secondary">Back to Results</button>
                 </div>
             </div>
@@ -186,7 +166,7 @@
             </div>
 
             <div id="reviewContainer" class="review-container">
-                <!-- Review questions with shuffled options will be inserted here -->
+                <!-- Review questions will be inserted here -->
             </div>
         </div>
     </div>
@@ -221,7 +201,7 @@
         <div class="admin-header">
             <div class="container">
                 <div class="admin-header-content">
-                    <h1>Admin Dashboard - 120 Question Bank</h1>
+                    <h1>Admin Dashboard</h1>
                     <div class="admin-actions">
                         <button id="exportData" class="btn btn--secondary">Export Data</button>
                         <button id="adminLogout" class="btn btn--outline">Logout</button>
@@ -241,14 +221,13 @@
                     <span class="admin-stat-number" id="averageScore">0%</span>
                 </div>
                 <div class="admin-stat-card">
-                    <h3>Question Bank Size</h3>
-                    <span class="admin-stat-number">120</span>
+                    <h3>Completion Rate</h3>
+                    <span class="admin-stat-number" id="completionRate">0%</span>
                 </div>
             </div>
 
             <div class="admin-table-container">
                 <h2>Participant Data</h2>
-                <p>Each participant gets 40 randomly selected questions from the 120-question database.</p>
                 <table class="admin-table">
                     <thead>
                         <tr>
@@ -269,6 +248,6 @@
         </div>
     </div>
 
-    <script src="app_complete_120.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
