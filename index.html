@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biology Quiz - Complete 120 Question Bank</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- DNA Background Pattern -->
+    <div class="dna-background"></div>
+    
+    <!-- Admin Gear Icon -->
+    <div class="admin-gear" id="adminGear" title="Admin Panel">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="3"></circle>
+            <path d="m12 1 1.28 2.5L16 4l.5 2.75L19 8l1 3-1 3-2.5 1.25L16 20l-2.72.5L12 23l-1.28-2.5L8 20l-.5-2.75L5 16l-1-3 1-3 2.5-1.25L8 4l2.72-.5z"></path>
+        </svg>
+    </div>
+
+    <!-- Welcome Screen -->
+    <div id="welcomeScreen" class="screen active">
+        <div class="container">
+            <div class="welcome-card">
+                <div class="quiz-logo">
+                    <div class="dna-icon">
+                        <div class="helix"></div>
+                        <div class="helix helix-2"></div>
+                    </div>
+                </div>
+                <h1>Biology Mastery Quiz</h1>
+                <p class="welcome-subtitle">Complete 120 question bank - 40 randomly selected with shuffled options!</p>
+                
+                <div class="quiz-info">
+                    <div class="info-item">
+                        <span class="info-icon">📚</span>
+                        <span>120 Question Bank</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🎲</span>
+                        <span>40 Random Questions</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">⏱️</span>
+                        <span>20 Minutes</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="info-icon">🔀</span>
+                        <span>Shuffled Options</span>
+                    </div>
+                </div>
+
+                <div class="shuffle-notice">
+                    <div class="notice-icon">⚡</div>
+                    <div class="notice-content">
+                        <h3>Advanced Randomization System</h3>
+                        <p>From our comprehensive 120-question database, 40 questions are randomly selected for each attempt. Question order and answer choices (A, B, C, D) are completely shuffled to ensure every quiz is unique and tests true knowledge.</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="studentName" class="form-label">Enter Your Name</label>
+                    <input type="text" id="studentName" class="form-control" placeholder="Your full name" required>
+                </div>
+                
+                <button id="startQuiz" class="btn btn--primary btn--lg btn--full-width">
+                    Start Randomized Quiz
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quiz Screen -->
+    <div id="quizScreen" class="screen">
+        <div class="quiz-header">
+            <div class="container">
+                <div class="quiz-header-content">
+                    <div class="quiz-progress">
+                        <span class="question-counter">
+                            Question <span id="currentQuestion">1</span> of <span id="totalQuestions">40</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                    <div class="timer">
+                        <div class="timer-icon">⏰</div>
+                        <span id="timeDisplay">20:00</span>
+                    </div>
+                </div>
+                <div class="shuffle-indicator">
+                    <span class="shuffle-badge">🎲 Random from 120 Questions</span>
+                    <span class="shuffle-badge">🔀 Options Shuffled</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="quiz-content">
+                <div class="question-card">
+                    <h2 id="questionText" class="question-title"></h2>
+                    <div id="optionsContainer" class="options-container">
+                        <!-- Shuffled options will be inserted here -->
+                    </div>
+                </div>
+
+                <div class="quiz-navigation">
+                    <button id="prevQuestion" class="btn btn--secondary">Previous</button>
+                    <button id="nextQuestion" class="btn btn--primary">Next</button>
+                    <button id="submitQuiz" class="btn btn--primary hidden">Submit Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Screen -->
+    <div id="resultsScreen" class="screen">
+        <div class="container">
+            <div class="results-card">
+                <div class="results-header">
+                    <div class="results-icon">
+                        <div class="score-circle">
+                            <span id="scorePercent">0%</span>
+                        </div>
+                    </div>
+                    <h1>Quiz Completed!</h1>
+                    <p class="student-name">Well done, <span id="resultStudentName"></span>!</p>
+                    <p class="shuffle-completion">You completed a unique quiz from our 120-question database</p>
+                </div>
+
+                <div class="results-stats">
+                    <div class="stat-item">
+                        <span class="stat-value" id="correctAnswers">0</span>
+                        <span class="stat-label">Correct</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="wrongAnswers">0</span>
+                        <span class="stat-label">Wrong</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="unansweredQuestions">0</span>
+                        <span class="stat-label">Unanswered</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" id="timeTaken">0:00</span>
+                        <span class="stat-label">Time</span>
+                    </div>
+                </div>
+
+                <div class="results-actions">
+                    <button id="reviewAnswers" class="btn btn--primary btn--lg">Review Answers</button>
+                    <button id="retakeQuiz" class="btn btn--secondary btn--lg">New Random Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Answer Review Screen -->
+    <div id="reviewScreen" class="screen">
+        <div class="review-header">
+            <div class="container">
+                <div class="review-header-content">
+                    <h1>Answer Review</h1>
+                    <div class="review-subtitle">
+                        <span class="shuffle-note">📝 Your randomly selected and shuffled questions</span>
+                    </div>
+                    <button id="backToResults" class="btn btn--secondary">Back to Results</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="review-summary">
+                <div class="summary-item summary-correct">
+                    <span class="summary-icon">✅</span>
+                    <span class="summary-text"><span id="reviewCorrect">0</span> Correct</span>
+                </div>
+                <div class="summary-item summary-wrong">
+                    <span class="summary-icon">❌</span>
+                    <span class="summary-text"><span id="reviewWrong">0</span> Wrong</span>
+                </div>
+                <div class="summary-item summary-unanswered">
+                    <span class="summary-icon">❓</span>
+                    <span class="summary-text"><span id="reviewUnanswered">0</span> Unanswered</span>
+                </div>
+            </div>
+
+            <div id="reviewContainer" class="review-container">
+                <!-- Review questions with shuffled options will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="adminModal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Admin Login</h2>
+                <button class="modal-close" id="closeAdminModal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="adminUsername" class="form-label">Username</label>
+                    <input type="text" id="adminUsername" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="adminPassword" class="form-label">Password</label>
+                    <input type="password" id="adminPassword" class="form-control">
+                </div>
+                <div id="adminError" class="error-message hidden"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="adminLogin" class="btn btn--primary">Login</button>
+                <button id="cancelAdminLogin" class="btn btn--secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminScreen" class="screen">
+        <div class="admin-header">
+            <div class="container">
+                <div class="admin-header-content">
+                    <h1>Admin Dashboard - 120 Question Bank</h1>
+                    <div class="admin-actions">
+                        <button id="exportData" class="btn btn--secondary">Export Data</button>
+                        <button id="adminLogout" class="btn btn--outline">Logout</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="admin-stats">
+                <div class="admin-stat-card">
+                    <h3>Total Participants</h3>
+                    <span class="admin-stat-number" id="totalParticipants">0</span>
+                </div>
+                <div class="admin-stat-card">
+                    <h3>Average Score</h3>
+                    <span class="admin-stat-number" id="averageScore">0%</span>
+                </div>
+                <div class="admin-stat-card">
+                    <h3>Question Bank Size</h3>
+                    <span class="admin-stat-number">120</span>
+                </div>
+            </div>
+
+            <div class="admin-table-container">
+                <h2>Participant Data</h2>
+                <p>Each participant gets 40 randomly selected questions from the 120-question database.</p>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Score</th>
+                            <th>Correct</th>
+                            <th>Wrong</th>
+                            <th>Unanswered</th>
+                            <th>Time Taken</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="participantTableBody">
+                        <!-- Participant data will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="app_complete_120.js"></script>
+</body>
+</html>
